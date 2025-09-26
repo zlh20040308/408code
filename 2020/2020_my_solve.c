@@ -121,5 +121,14 @@ int main() {
 //===========================================================================================
 
 int findMin(int A[], int n, int B[], int m, int C[], int p) {
-
+    int ans = abs(A[0]-B[0]) + abs(B[0]-C[0]) + abs(C[0]-A[0]);
+    for(int i = 0 ; i < n; ++i){
+        for(int j = 0 ; j < m; ++j){
+            for(int k = 0 ; k < p; ++k){
+                int D = abs(A[i]-B[j]) + abs(B[j]-C[k]) + abs(C[k]-A[i]);
+                ans = ans > D ? D : ans;
+            }
+        }
+    }
+    return ans;
 }
